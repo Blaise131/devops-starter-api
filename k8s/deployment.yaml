@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: devops-starter-api
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: devops-starter-api
+
+  template:
+    metadata:
+      labels:
+        app: devops-starter-api
+
+    spec:
+      containers:
+        - name: devops-starter-api
+          image: devops-starter-api:0.1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000
